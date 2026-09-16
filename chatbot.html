@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!-- React External Libary to use for our website (Need Both) -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!-- Sets up react after getting the external libraries above -->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      // Creating a component (Always Uppercase letter)
+      function ChatInput () {
+        return (
+          <div>
+            <input />
+            <button>Send</button>
+          </div>
+        );
+      }
+
+      // Can use a div element to render and display multiple html elements
+      const div = (
+        <div>
+          {ChatInput()}   
+        </div>
+      );
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(div);
+    </script>
+  </body>
+</html>
