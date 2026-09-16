@@ -14,26 +14,51 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
-      // Creating a component (Always Uppercase letter & can only return one element)
-      // Used a fragment <></> to remove any extra div elements and made it empty. Still function sthe same
-      function ChatInput () {
+      // Creating a component (Always Uppercase letter & can only return one element) (fragment)
+      function ChatInput() {
         return (
           <>
-            <input />
+            <input placeholder="Send a message to Chatbot" size="30" />
             <button>Send</button>
           </>
         );
       }
 
-      // Can use a div element to render and display multiple html elements
-      const div = (
-        <div>
-          <ChatInput />   
-        </div>
+      // Creating a component for the user & chatbot messages
+      function ChatMessage(props) {
+        const message = props.message;
+        const sender = props.sender;
+
+        if (sender === 'robot') {
+          return (
+            <div>
+              <img src="robot.png" width="50" />
+              {message}    
+            </div>
+          );
+        }
+
+        return (
+          <div>
+            {message}
+            <img src="user.png" width="50" />
+          </div>
+        );
+      }
+
+      // Can use a div element to render and display multiple html elements (Used fragment - empty div)
+      const app = (
+        <>
+          <ChatInput />
+          <ChatMessage message="Hello Chatbot" sender="user" /> 
+          <ChatMessage message="Hello! How can I help you?" sender="robot" />  
+          <ChatMessage message="What's today's date?" sender="user" />
+          <ChatMessage message="Today is September 16" sender="robot" />
+        </>
       );
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(div);
+      ReactDOM.createRoot(container).render(app);
     </script>
   </body>
 </html>
