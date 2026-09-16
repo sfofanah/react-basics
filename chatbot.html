@@ -24,10 +24,11 @@
         );
       }
 
-      // Creating a component for the user & chatbot messages
-      function ChatMessage(props) {
-        const message = props.message;
-        const sender = props.sender;
+      // Creating a component for the user & chatbot messages (used props - message & sender)
+      function ChatMessage({ message, sender }) {
+       // const message = props.message;
+       // const sender = props.sender;
+       // const { message, sender } = props;
 
         if (sender === 'robot') {
           return (
