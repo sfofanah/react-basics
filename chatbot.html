@@ -15,12 +15,13 @@
     <script type="text/babel">
 
       // Creating a component (Always Uppercase letter & can only return one element)
+      // Used a fragment <></> to remove any extra div elements and made it empty. Still function sthe same
       function ChatInput () {
         return (
-          <div>
+          <>
             <input />
             <button>Send</button>
-          </div>
+          </>
         );
       }
 
