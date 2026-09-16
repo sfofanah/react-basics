@@ -18,7 +18,10 @@
       function ChatInput() {
         return (
           <>
-            <input placeholder="Send a message to Chatbot" size="30" />
+            <input 
+              placeholder="Send a message to Chatbot" 
+              size="30" 
+            />
             <button>Send</button>
           </>
         );
@@ -29,7 +32,8 @@
        // const message = props.message;
        // const sender = props.sender;
        // const { message, sender } = props;
-
+        
+       /*
         if (sender === 'robot') {
           return (
             <div>
@@ -38,28 +42,49 @@
             </div>
           );
         }
+      */
 
         return (
           <div>
+            {sender === 'robot' && (
+              <img src="robot.png" width="50" />
+            )}
             {message}
-            <img src="user.png" width="50" />
+            {sender === 'user' && (
+              <img src="user.png" width="50" />
+            )}
           </div>
         );
       }
 
-      // Can use a div element to render and display multiple html elements (Used fragment - empty div)
-      const app = (
-        <>
-          <ChatInput />
-          <ChatMessage message="Hello Chatbot" sender="user" /> 
-          <ChatMessage message="Hello! How can I help you?" sender="robot" />  
-          <ChatMessage message="What's today's date?" sender="user" />
-          <ChatMessage message="Today is September 16" sender="robot" />
-        </>
-      );
+      function App() {
+        return (
+          <>
+            <ChatInput />
+            <ChatMessage 
+              message="Hello Chatbot" 
+              sender="user" 
+            /> 
+            <ChatMessage 
+            message="Hello! How can I help you?" 
+            sender="robot" 
+            />  
+            <ChatMessage 
+            message="What's today's date?" 
+            sender="user" 
+            />
+            <ChatMessage 
+            message="Today is September 16" 
+            sender="robot" 
+            />
+          </>
+        );
+      }
 
+      // Can use a div element to render and display multiple html elements (Used fragment - empty div)
+  
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(app);
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
