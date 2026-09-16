@@ -14,7 +14,7 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
-      // Creating a component (Always Uppercase letter)
+      // Creating a component (Always Uppercase letter & can only return one element)
       function ChatInput () {
         return (
           <div>
@@ -27,7 +27,7 @@
       // Can use a div element to render and display multiple html elements
       const div = (
         <div>
-          {ChatInput()}   
+          <ChatInput />   
         </div>
       );
 
