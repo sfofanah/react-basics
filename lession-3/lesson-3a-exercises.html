@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 3 Exercises</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!-- React External Libary to use for our website (Need Both) -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!-- Sets up react after getting the external libraries above -->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function Counter() {
+        const [count, setCount] = React.useState(0);
+
+        function onClickHandler() {
+            setCount(count + 1);
+          }
+
+        return (
+          <button onClick={onClickHandler}
+            >Clicked {count} {count === 1 ? 'time' : 'times'}
+          </button>
+        )
+
+      }
+
+
+      function App() {
+          return (
+          <>
+            <Counter />
+            <Counter />
+          </>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
