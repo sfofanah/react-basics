@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lesson 3a Exercises</title>
+    <title>Lesson 3b Exercises</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -14,40 +14,47 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
-      function Counter({ count, setCount }) {
-        function onClickHandler() {
-            setCount(count + 1);
-          }
-
-        return (
-            <button onClick={onClickHandler}>
-              Clicked {count} {count === 1 ? 'time' : 'times'}
-            </button>
-        )
-
-      }
-
-
-      function App() {
-        const [count, setCount] = React.useState(0);
-
-        function resetCount() {
-          setCount(0);
+      function Inputs({ input, setInput }) {
+        
+        function OnChageHandler(event) {
+          setInput(event.target.value);
         }
 
-          return (
+        return (
+          <input
+            onChange = {OnChageHandler}
+            placeholder = "Type anything"
+            value = {input}
+          />
+        )
+      }
+
+     
+
+      function App() {
+        const [input, setInput] = React.useState('');
+
+        function ResetButton() {
+          setInput('');
+        }
+
+        function ExampleButton() {
+          setInput('Alice');
+        }
+
+        return (
           <>
-            <Counter 
-              count = {count}
-              setCount = {setCount}
+            <Inputs 
+              input = {input}
+              setInput = {setInput}
             />
-            <Counter 
-              count = {count}
-              setCount = {setCount}
-            />
-            <button onClick={resetCount}>
+            <button onClick = {ResetButton}>
               Reset
             </button>
+            <button onClick = {ExampleButton}>
+              Example
+            </button>
+            <p>Hello {input}</p>
           </>
         )
       }
