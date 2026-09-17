@@ -57,7 +57,7 @@
         );
       }
 
-      function App() {
+      function ChatMessages() {
         const chatMessages = [{
           message: 'hello chat',
           sender: 'user',
@@ -78,16 +78,25 @@
 
         return (
           <>
-            <ChatInput />
             {chatMessages.map((chatMessage) => {
-              return (
-                <ChatMessage 
-                  message = {chatMessage.message}
-                  sender = {chatMessage.sender}
-                  key = {chatMessage.id}
-                />
-              );
-            })}
+                return (
+                  <ChatMessage 
+                    message = {chatMessage.message}
+                    sender = {chatMessage.sender}
+                    key = {chatMessage.id}
+                  />
+                );
+              })}
+          </>
+        );
+
+      }
+
+      function App() {
+        return (
+          <>
+            <ChatInput />
+            <ChatMessages />
           </>
         );
       }
