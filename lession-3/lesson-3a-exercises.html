@@ -2,6 +2,32 @@
 <html>
   <head>
     <title>Lesson 3a Exercises</title>
+    <style>
+      body {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      
+      .button-container {
+        background-color: rgb(222, 222, 222);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        height: 100vh;
+      }
+
+      .btn-button {
+        background-color: rgb(25, 135, 84);
+        padding: 10px 15px;
+        color: white;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <div class="js-container"></div>
@@ -36,24 +62,27 @@
         }
 
           return (
-          <>
+          <div className="button-container">
             <button 
               onClick={increaseCount}
               ref={buttonRef}
+              className="btn-button"
             >
               Clicked {count} {count === 1 ? 'time' : 'times'}
             </button>
             <button 
               onClick={resetCount}
+              className="btn-button"
             >
               Reset
             </button>
             <button 
               onClick={autoClicks}
+              className="btn-button"
             >
               Auto Click
             </button>
-          </>
+          </div>
         )
       }
 
