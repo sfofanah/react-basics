@@ -14,39 +14,44 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
-      function Counter({ count, setCount }) {
-        function onClickHandler() {
-            setCount(count + 1);
-          }
-
-        return (
-            <button onClick={onClickHandler}>
-              Clicked {count} {count === 1 ? 'time' : 'times'}
-            </button>
-        )
-
-      }
-
-
       function App() {
         const [count, setCount] = React.useState(0);
+        const buttonRef = React.useRef();
+
+        function increaseCount() {
+          setCount(count + 1);
+        }
 
         function resetCount() {
           setCount(0);
         }
 
+        function autoClicks() {
+          setInterval(() => {
+            const buttonElem = buttonRef.current;
+            if (buttonElem) {
+              buttonElem.click();
+            }
+          }, 1000)
+        }
+
           return (
           <>
-            <Counter 
-              count = {count}
-              setCount = {setCount}
-            />
-            <Counter 
-              count = {count}
-              setCount = {setCount}
-            />
-            <button onClick={resetCount}>
+            <button 
+              onClick={increaseCount}
+              ref={buttonRef}
+            >
+              Clicked {count} {count === 1 ? 'time' : 'times'}
+            </button>
+            <button 
+              onClick={resetCount}
+            >
               Reset
+            </button>
+            <button 
+              onClick={autoClicks}
+            >
+              Auto Click
             </button>
           </>
         )
