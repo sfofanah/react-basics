@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 4 Exercises</title>
+    <style>
+      .on-button {
+        background-color: rgb(25, 135, 84);
+        color: white;
+        font-size: 20px;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!-- React External Libary to use for our website (Need Both) -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!-- Sets up react after getting the external libraries above -->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function App() {
+        const [isButtonOn, setIsButtonOn] = React.useState(true);
+
+        function switchButtonOn() {
+          if (isButtonOn) {
+            setIsButtonOn(false);
+          } else {
+            setIsButtonOn(true);
+          }
+        }
+
+        return (
+          <button 
+          className="on-button"
+          onClick={switchButtonOn}
+          >
+            {isButtonOn ? 'ON' : 'OFF'}
+          </button>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
